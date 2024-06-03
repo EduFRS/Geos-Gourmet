@@ -1,10 +1,11 @@
 import { Box, Container, Grid, Typography, styled } from "@mui/material";
 import Avatar from "../../../../assets/images/logoII.jpg";
-import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import StyledButton from "../../../../components/StyledButton/StyledButton";
+
 import theme from "../../../../theme";
 import { AnimatedBackground } from "../../../../components/AnimateBackground/AnimateBackground";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import StyledButton from "../../../../components/StyledButton/StyledButton";
 
 const Hero = () => {
     const StyledHero = styled("div")(({theme}) => ({
@@ -26,6 +27,26 @@ const Hero = () => {
         border: `1px solid ${theme.palette.primary.contrastText}`
     }))
 
+    const StyledIConWhats = styled("div")(() => ({
+        [theme.breakpoints.up('xs')]: { // <= mobile            
+            width: "8%",            
+        },
+        [theme.breakpoints.up('md')]: { // >= mobile            
+            width: "15%",            
+        },        
+        color: "green"
+    }))
+
+    const StyledIConLocation = styled("div")(() => ({   
+        [theme.breakpoints.up('xs')]: { // <= mobile            
+            width: "7%",            
+        },
+        [theme.breakpoints.up('md')]: { // >= mobile            
+            width: "7%",            
+        },     
+        color: "red"
+    }))
+
     return (
         <>
             <StyledHero>
@@ -45,15 +66,19 @@ const Hero = () => {
                             <Typography color="primary.contrastText" variant="h1" textAlign="center" pb={1}>Geos Gourmet</Typography>
                             <Typography color="primary.contrastText" variant="h2" textAlign="center">Brazileira Bakery</Typography>
                             <Grid container display="flex" justifyContent="center" spacing={3} pt={3}>
-                                <Grid item xs={12} md={4} display="flex" justifyContent="center">                                     
-                                    <StyledButton onClick={() => console.log("Contact me!")}>
-                                        <EmailIcon /><Typography>Contact me</Typography>
-                                    </StyledButton>                                 
+                                <Grid item xs={12} md={4} display="flex" justifyContent="center" color="white">                                     
+                                    <StyledButton onClick={() => console.log("Whatsapp")}>
+                                  <StyledIConWhats><WhatsAppIcon /></StyledIConWhats>  
+                                         +1(816) 699-4783
+                                         </StyledButton>
                                 </Grid>
-                                <Grid item xs={12} md={4} display="flex" justifyContent="center">                                   
-                                    <StyledButton onClick={() => console.log("Location!")}>
-                                        <LocationOnIcon /><Typography>Location</Typography>   
-                                    </StyledButton>                                 
+                                <Grid item xs={12} md={6} display="flex" justifyContent="center" color="white">                                   
+                                <StyledButton onClick={() => console.log("Whatsapp")}>
+                                <StyledIConLocation>
+                                        <LocationOnIcon />
+                                        </StyledIConLocation>
+                                        12805 S MUR-LEN ROAD, OLATHE
+                                </StyledButton>
                                 </Grid>
                             </Grid>
                         </Grid>
